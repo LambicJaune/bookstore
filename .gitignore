@@ -1,6 +1,7 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
+*.pyc
 *$py.class
 
 # C extensions
@@ -214,3 +215,6 @@ __marimo__/
 
 # Django settings
 bookstore/settings.py
+
+# Static files build output
+staticfiles/
