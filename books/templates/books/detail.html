@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ object.name }}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="data-page">
+    <div class="container details">
+        <h2>Details: {{ object.name }}</h2>
+
+        <b>Title:</b> {{ object.name }} <br>
+        <b>Author:</b> {{ object.author_name }} <br>
+        <b>Genre:</b> {{ object.genre }} <br>
+        <b>Book Type:</b> {{ object.book_type }} <br>
+        <b>Price:</b> {{ object.price }} <br>
+
+        <img src="{{ object.pic.url }}" alt="{{ object.name }}">
+
+        <br><br><br>
+
+        <div class="button-row">
+            <a class="btn-like" href="{% url 'books:list' %}">Back to Books List</a>
+            <a class="logout" href="{% url 'logout' %}">Logout</a>
+        </div>
+
+    </div>
+    
+<script src="{% static 'effects.js' %}"></script>
+</body>
+
+</html>

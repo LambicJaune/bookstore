@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Books List</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Books' list</h1>
+
+        <br>
+
+        <div class="button-row">
+            <a class="btn-like" href="{% url 'sales:records' %}">Search for sales records</a>
+            <a class="logout" href="{% url 'logout' %}">Logout</a>
+        </div>
+
+        <br><br>
+
+        <table border="1" cellpadding="5" cellspacing="5">
+            <tr>
+                <td>Books' Titles</td>
+                <td>Books' Images</td>
+            </tr>
+
+            {% for object in object_list %}
+            <tr>
+                <td>
+                    <a href="{{ object.get_absolute_url }}">
+                        {{ object.name }}
+                    </a>
+                </td>
+                <td>
+                    <img src="{{ object.pic.url }}" width="150" height="200" />
+                </td>
+            </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+<script src="{% static 'effects.js' %}"></script>
+</body>
+
+</html>

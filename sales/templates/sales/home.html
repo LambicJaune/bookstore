@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bookstore Home</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+
+    <div class="container home-container">
+        <h1>Welcome to our Bookstore</h1>
+
+        <div class="page-actions">
+            <a class="btn-login" href="{% url 'login' %}">Login</a>
+            <img src="{% static 'sales/images/bookstore.jpg' %}" alt="home">
+        </div>
+
+<script src="{% static 'effects.js' %}"></script>
+</body>
+
+</html>

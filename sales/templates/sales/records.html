@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Search Sales Records</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="data-page">
+    <div class="container details">
+        <h1>Search for Sales Records</h1>
+
+        <div class="page-actions">
+            <a class="btn-like" href="{% url 'books:list' %}">Back to Books List</a>
+        </div>
+
+        <hr>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Search</button>
+        </form>
+
+        <datalist id="book-list">
+            {% for book in books %}
+            <option value="{{ book }}"></option>
+            {% endfor %}
+        </datalist>
+
+        <hr>
+
+        {% if sales_df %}
+        <div class="sales-table">
+            {{ sales_df|safe }}
+        </div>
+        <br>
+        <img class="sales-chart" src="data:image/png;base64, {{ chart|safe }}" alt="Sales Chart">
+        {% else %}
+        <h3>No data</h3>
+        {% endif %}
+
+        <br><br>
+
+        <a class="logout" href="{% url 'logout' %}">Logout</a>
+    </div>
+<script src="{% static 'effects.js' %}"></script>
+</body>
+
+</html>
