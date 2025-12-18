@@ -213,8 +213,5 @@ __marimo__/
 # Database
 *.sqlite3
 
-# Django settings
-bookstore/settings.py
-
 # Static files build output
 staticfiles/
